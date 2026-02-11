@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SAMPS UR - Lecturer Dashboard",
-  description: "University Registrar Portal for Lecturers",
+  title: "SAMPS UR - Registrar Dashboard",
+  description: "University Registrar Portal",
 };
 
 export default function RootLayout({
