@@ -24,16 +24,7 @@ const Avatar: React.FC<AvatarProps> = ({ name, size = "md", src }) => {
   };
 
   const getBgColor = (name: string) => {
-    const colors = [
-      "bg-[#026892]",
-      "bg-blue-500",
-      "bg-green-500",
-      "bg-purple-500",
-      "bg-pink-500",
-      "bg-indigo-500",
-    ];
-    const index = name.charCodeAt(0) % colors.length;
-    return colors[index];
+    return "bg-[#026892]";
   };
 
   if (src) {

@@ -10,9 +10,9 @@ export default function Home() {
 
   // Dummy user data
   const user = {
-    name: "Dr. Kunal Singh",
-    email: "kunal.singh@university.edu",
-    role: "Senior Lecturer"
+    name: "Omake",
+    email: "omake@university.edu",
+    role: "Registrar"
   };
 
   return (
@@ -30,16 +30,16 @@ export default function Home() {
       />
 
       {/* Main Content */}
-      <main className="flex-1 pt-16 lg:pl-64 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <main className="flex-1 pt-28 sm:pt-20 lg:pt-16 lg:pl-64 transition-all duration-300">
+        <div className="w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6">
           {/* Page Header */}
-          <div className="mb-6">
-            <h1 className="heading-lg mb-2">Welcome back, {user.name}!</h1>
-            <p className="body-text">Here's your academic overview.</p>
+          <div className="mb-4 sm:mb-6">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900 mb-1">Registrar Dashboard</h1>
+            <p className="text-xs sm:text-sm text-gray-600">Executive overview and institutional management</p>
           </div>
 
           {/* Statistics Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
             <StatCard
               title="Total Students"
               value="12,347"
@@ -68,8 +68,8 @@ export default function Home() {
               icon={<ClipboardList />}
               iconColor="orange"
               change={{
-                text: "",
-                variant: "warning"
+                text: "Needs attention",
+                variant: "negative"
               }}
             />
             
@@ -80,38 +80,38 @@ export default function Home() {
               iconColor="purple"
               change={{
                 text: "Current semester",
-                variant: "neutral"
+                variant: "positive"
               }}
             />
           </div>
 
           {/* Main Grid - Quick Actions, Today's Schedule, and Current Enrollment */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
             {/* Quick Actions */}
-            <div>
+            <div className="min-h-[300px]">
               <QuickActions />
             </div>
 
             {/* Today's Schedule */}
-            <div>
+            <div className="min-h-[300px]">
               <TodaySchedule />
             </div>
 
             {/* Current Enrollment */}
-            <div>
+            <div className="min-h-[300px] md:col-span-2 lg:col-span-1">
               <CurrentEnrollment />
             </div>
           </div>
 
           {/* Student Statistics and Enrollment Analytics */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-4">
             {/* Student Statistics */}
-            <div>
+            <div className="min-h-[400px]">
               <StudentStatistics />
             </div>
 
             {/* Enrollment Analytics */}
-            <div>
+            <div className="min-h-[400px]">
               <EnrollmentAnalytics />
             </div>
           </div>

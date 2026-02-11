@@ -17,9 +17,12 @@ const StudentStatistics: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 h-full flex flex-col">
+    <div className="bg-white border border-gray-200 rounded-lg p-4 h-full flex flex-col">
       {/* Header */}
-      <div className="mb-3">
+      <div className="mb-3 flex items-center gap-2">
+        <svg className="w-5 h-5 text-[#026892]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21V13M17 21V9M12 21V3" />
+        </svg>
         <h2 className="text-base font-bold text-gray-900">Student Statistics</h2>
       </div>
 

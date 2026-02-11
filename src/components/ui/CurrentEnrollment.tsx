@@ -13,6 +13,7 @@ const CurrentEnrollment: React.FC = () => {
     {
       label: "Total Enrolled",
       value: "12,347",
+      badgeColor: "bg-green-50 text-green-600",
     },
     {
       label: "Pending Applications",
@@ -27,35 +28,28 @@ const CurrentEnrollment: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 shadow-sm h-full flex flex-col">
-      <div className="mb-3 sm:mb-4">
-        <h2 className="text-base sm:text-lg font-bold text-gray-900">Current Enrollment</h2>
+    <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-5 h-full flex flex-col">
+      <div className="mb-4">
+        <h2 className="text-lg font-bold text-gray-900">Current Enrollment</h2>
       </div>
 
-      <div className="space-y-4 flex flex-col">
-        {enrollmentData.map((item, index) => {
-          const isTotal = index === 0;
-          
+      <div className="space-y-3 flex flex-col">
+        {enrollmentData.map((item) => {
           return (
             <div
               key={item.label}
-              className="flex items-center justify-between gap-3"
+              className={`flex items-center justify-between gap-3 px-4 py-3 rounded-lg border border-gray-200/60 ${item.badgeColor}`}
             >
-              <span className="text-sm text-gray-700 font-medium">
+              <span className="text-sm font-medium text-gray-900">
                 {item.label}
               </span>
               
-              {isTotal ? (
-                <span className="text-2xl font-bold text-gray-900">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-current"></span>
+                <span className="text-base text-gray-900">
                   {item.value}
                 </span>
-              ) : (
-                <span
-                  className={`inline-flex items-center justify-center min-w-[32px] h-7 px-2.5 rounded-full text-sm font-semibold ${item.badgeColor}`}
-                >
-                  {item.value}
-                </span>
-              )}
+              </div>
             </div>
           );
         })}

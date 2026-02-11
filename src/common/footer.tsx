@@ -1,27 +1,23 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 const Footer: React.FC = () => {
-  const currentDate = new Date();
-  const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
-
   return (
-    <footer className="bg-white border-t border-gray-200 mt-auto">
-      <div className="max-w-7xl mx-auto px-6 py-3">
-        <div className="flex items-center justify-between text-xs text-gray-600">
-          <div className="flex items-center gap-4">
-            <span>© {currentDate.getFullYear()} University Lecturer Portal</span>
-            <span>•</span>
-            <span>Academic Year 2023-2024</span>
-            <span>•</span>
+    <footer className="bg-white border-t border-gray-200 py-3 mt-auto lg:pl-64">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0 text-xs text-gray-600">
+          <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
             <span>Version 2.1.0</span>
+            <span className="text-gray-300">•</span>
+            <a href="#" className="hover:text-[#026892] transition-colors">Support</a>
+            <span className="text-gray-300">•</span>
+            <a href="#" className="hover:text-[#026892] transition-colors">Terms</a>
+            <span className="text-gray-300">•</span>
+            <a href="#" className="hover:text-[#026892] transition-colors">Privacy</a>
           </div>
-          
-          <div className="flex items-center gap-4">
-            <span>Last updated: {formattedDate}</span>
-            <span>•</span>
-            <span>Session: Active</span>
+          <div className="text-gray-400">
+            Last Updated: Aug 2025
           </div>
         </div>
       </div>

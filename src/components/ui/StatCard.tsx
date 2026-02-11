@@ -29,14 +29,14 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, change, iconCol
   const iconStyle = getIconBgColor(iconColor);
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 hover:shadow-md transition-all duration-300 overflow-hidden">
+    <div className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 hover:shadow-md transition-all duration-300 overflow-hidden">
       {/* Header with title and icon aligned on same line */}
       <div className="flex items-center justify-between gap-2 mb-2">
         <h3 className="text-xs sm:text-sm font-medium text-gray-600 tracking-tight">
           {title}
         </h3>
-        <div className={`flex-shrink-0 h-8 w-8 sm:h-9 sm:w-9 rounded-lg ${iconStyle.bg} ${iconStyle.text} flex items-center justify-center`}>
-          <span className="[&>svg]:h-4 [&>svg]:w-4 sm:[&>svg]:h-5 sm:[&>svg]:w-5">{icon}</span>
+        <div className={`flex-shrink-0 h-7 w-7 sm:h-8 sm:w-8 rounded-lg ${iconStyle.bg} ${iconStyle.text} flex items-center justify-center`}>
+          <span className="[&>svg]:h-3.5 [&>svg]:w-3.5 sm:[&>svg]:h-4 sm:[&>svg]:w-4">{icon}</span>
         </div>
       </div>
 
