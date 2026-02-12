@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 interface EnrollmentData {
   label: string;
+  fullName: string;
   value: number;
   color: string;
 }
@@ -12,9 +13,9 @@ const EnrollmentAnalytics: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const data: EnrollmentData[] = [
-    { label: 'Undergraduate', value: 7034, color: '#026892' },
-    { label: 'Postgraduate', value: 3210, color: '#10b981' },
-    { label: 'Diploma', value: 2103, color: '#f59e0b' },
+    { label: 'Engineering', fullName: 'School of Engineering', value: 3245, color: '#026892' },
+    { label: 'Science', fullName: 'School of Science', value: 2890, color: '#10b981' },
+    { label: 'Commerce', fullName: 'School of Commerce', value: 2456, color: '#f59e0b' },
   ];
 
   const total = data.reduce((sum, item) => sum + item.value, 0);
@@ -33,15 +34,15 @@ const EnrollmentAnalytics: React.FC = () => {
     const radius = 80;
     const innerRadius = 55;
 
-    const x1 = 100 + radius * Math.cos(startRad);
-    const y1 = 100 + radius * Math.sin(startRad);
-    const x2 = 100 + radius * Math.cos(endRad);
-    const y2 = 100 + radius * Math.sin(endRad);
+    const x1 = Math.round((100 + radius * Math.cos(startRad)) * 100) / 100;
+    const y1 = Math.round((100 + radius * Math.sin(startRad)) * 100) / 100;
+    const x2 = Math.round((100 + radius * Math.cos(endRad)) * 100) / 100;
+    const y2 = Math.round((100 + radius * Math.sin(endRad)) * 100) / 100;
 
-    const ix1 = 100 + innerRadius * Math.cos(startRad);
-    const iy1 = 100 + innerRadius * Math.sin(startRad);
-    const ix2 = 100 + innerRadius * Math.cos(endRad);
-    const iy2 = 100 + innerRadius * Math.sin(endRad);
+    const ix1 = Math.round((100 + innerRadius * Math.cos(startRad)) * 100) / 100;
+    const iy1 = Math.round((100 + innerRadius * Math.sin(startRad)) * 100) / 100;
+    const ix2 = Math.round((100 + innerRadius * Math.cos(endRad)) * 100) / 100;
+    const iy2 = Math.round((100 + innerRadius * Math.sin(endRad)) * 100) / 100;
 
     const largeArc = angle > 180 ? 1 : 0;
 
@@ -51,8 +52,8 @@ const EnrollmentAnalytics: React.FC = () => {
     const labelAngle = (startAngle + endAngle) / 2;
     const labelRad = (labelAngle * Math.PI) / 180;
     const labelRadius = radius + 35;
-    const labelX = 100 + labelRadius * Math.cos(labelRad);
-    const labelY = 100 + labelRadius * Math.sin(labelRad);
+    const labelX = Math.round((100 + labelRadius * Math.cos(labelRad)) * 100) / 100;
+    const labelY = Math.round((100 + labelRadius * Math.sin(labelRad)) * 100) / 100;
 
     return { path, color: item.color, value: item.value, labelX, labelY };
   });
@@ -66,7 +67,7 @@ const EnrollmentAnalytics: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
         </svg>
-        <h2 className="text-lg font-bold text-gray-900">Enrollment Analytics</h2>
+        <h2 className="text-lg font-bold text-gray-900">Department-wise Student Registration</h2>
       </div>
 
       {/* Chart Container */}
@@ -74,13 +75,12 @@ const EnrollmentAnalytics: React.FC = () => {
         <svg
           width="100%"
           height="100%"
-          viewBox="0 0 280 280"
-          className="mb-3 max-w-[280px] max-h-[280px]"
+          viewBox="0 0 320 280"
+          className="mb-3 max-w-[320px] max-h-[280px]"
           preserveAspectRatio="xMidYMid meet"
         >
           {segments.map((segment, index) => {
-            // Adjust label positions for larger viewBox
-            const adjustedLabelX = segment.labelX + 40;
+            const adjustedLabelX = segment.labelX + 60;
             const adjustedLabelY = segment.labelY + 40;
             
             return (
@@ -96,7 +96,7 @@ const EnrollmentAnalytics: React.FC = () => {
                 <path
                   d={segment.path}
                   fill={segment.color}
-                  transform="translate(40, 40)"
+                  transform="translate(60, 40)"
                   style={{
                     filter:
                       hoveredIndex === index
@@ -110,10 +110,9 @@ const EnrollmentAnalytics: React.FC = () => {
                   x={adjustedLabelX}
                   y={adjustedLabelY}
                   textAnchor="middle"
-                  dy="0.3em"
                   style={{
                     fill: segment.color,
-                    fontSize: '16px',
+                    fontSize: '18px',
                     fontWeight: 'bold',
                   }}
                 >
@@ -128,7 +127,10 @@ const EnrollmentAnalytics: React.FC = () => {
         {hoveredIndex !== null && (
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-lg z-20">
             <div className="text-sm font-semibold text-gray-900">
-              {data[hoveredIndex].label} : {data[hoveredIndex].value}
+              {data[hoveredIndex].fullName}
+            </div>
+            <div className="text-xs text-gray-600 mt-1">
+              {data[hoveredIndex].value} students
             </div>
           </div>
         )}

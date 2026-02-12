@@ -11,8 +11,8 @@ const StudentStatistics: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const metrics: StatisticMetric[] = [
-    { label: 'Enrollment Rate', value: 94.2 },
-    { label: 'Retention Rate', value: 91.8 },
+    { label: 'Registration Rate', value: 94.2 },
+    { label: 'Active Students %', value: 91.8 },
     { label: 'Graduation Rate', value: 87.5 },
   ];
 
